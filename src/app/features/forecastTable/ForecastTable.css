@@ -1,0 +1,90 @@
+/** AL CARGAR LA TABLA SE CARGAN TODOS LOS ESTILOS **/
+
+/* Cuatro columnas panel general */
+
+.tabla-4 th,
+.tabla-4 td {
+    width: calc(100%/4);
+    text-align: center;
+    padding: 0;
+}
+
+.tabla-5 th,
+.tabla-5 td {
+    width: calc(100%/5);
+    text-align: center;
+    padding: 0;
+}
+
+/* 6 columnas mostrar playas */
+.tabla-6 th,
+.tabla-6 td {
+    width: calc(100%/6);
+    text-align: center;
+    padding: 0;
+}
+
+.tabla-7 th,
+.tabla-7 td {
+    width: calc(100%/7);
+    text-align: center;
+    padding: 0;
+}
+/* 
+* CSS general de la tabla
+*/
+
+.tableFixed {
+    width: 100%;
+}
+
+.tableFixed tbody {
+        overflow-y: scroll; /* fuerza a que haga scroll */
+        overflow-x: hidden;
+}
+   
+.tableFixed thead,
+.tableFixed tbody,
+.tableFixed tr,
+.tableFixed td,
+.tableFixed th {
+    display: block;
+}
+
+.tableFixed thead {
+    border-bottom: 1px solid #DEE2E6;
+}
+
+.tableFixed thead tr {
+    padding-right: 16px;
+}
+
+.tableFixed tr:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+.tableFixed tbody td,
+.tableFixed thead > tr > th {
+    float: left;
+}
+
+.tableFixed i {
+    padding: 0.5rem 0;
+    font-size: 1.5rem;
+    color:darkcyan;
+    display: block;
+}
+
+.tableFixed img {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+    .tableFixed thead tr {
+        padding-right: 0;
+    }
+}   

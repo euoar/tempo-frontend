@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+  /* background-image: url("/fondos/wov.png") */
+  font-family: 'M PLUS Rounded 1c';
+  /* background-color: #424242; */
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}

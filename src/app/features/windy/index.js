@@ -1,1 +1,1 @@
-export {default as WindyMap} from './WindyMap';
+export {default} from './WindyMap';

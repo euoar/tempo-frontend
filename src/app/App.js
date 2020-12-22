@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Suspense, lazy } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import Home from './features/home';
-import { Locations } from './features/search';
-import { Forecast } from './features/forecastTable';
-import { WindyMap } from './features/windy';
+
+const Home = lazy(() => import('./features/home'));
+const Locations = lazy(() => import('./features/search'));
+const Forecast = lazy(() => import('./features/forecastTable'));
+const WindyMap = lazy(() => import('./features/windy'));
 
 class App extends Component {
   constructor(props) {
@@ -32,13 +34,15 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Switch>
-          {
-            routes.map((route, index) =>
-              <Route key={index} exact path={route.path} render={() => React.createElement(route.component, {})} />
-            )
-          }
-        </Switch>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Switch>
+            {
+              routes.map((route, index) =>
+                <Route key={index} exact path={route.path} render={() => React.createElement(route.component, {})} />
+              )
+            }
+          </Switch>
+        </Suspense>
       </div>
     );
 

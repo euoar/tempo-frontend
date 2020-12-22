@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {Suspense, lazy} from 'react';
 import PageTemplate from '../../shared/PageTemplate';
-import ForecastTable from './ForecastTable';
+
 import { connect } from 'react-redux';
 import { getNumericInfo, getWaterTemp } from './actions';
 import { getGeoLocation } from '../search/actions';
 import {withRouter} from 'react-router-dom';
+
+const ForecastTable = lazy(() => import('./ForecastTable'));
 
 class Forecast extends React.Component {
   constructor(props) {
@@ -35,7 +37,9 @@ class Forecast extends React.Component {
             :
             new URLSearchParams(window.location.search).get('location')}
           </h1>
+          <Suspense fallback={<div>Loading...</div>}>
           <ForecastTable days={days} />
+          </Suspense>
         </main>
       </PageTemplate>
     )
